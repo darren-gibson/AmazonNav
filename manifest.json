@@ -1,0 +1,15 @@
+{
+  "manifest_version": 2,
+  "name": "Amazon Prime Video Navigator",
+  "short_name": "AmazonNav",
+  "description": "Navigate Amazon Prime Videos using keyboard",
+  "version": "0.0.1",
+  "content_scripts": [{
+    "matches": ["*://www.amazon.co.uk/*"],
+    "css": ["mystyles.css"],
+    "js": ["jquery-3.2.1.min.js", "jquery.scrollTo.js", "driver.js"]
+  }],
+  "icons": {
+    "48": "assets/48.png"
+  }
+}
