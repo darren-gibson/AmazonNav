@@ -14,6 +14,7 @@ class AmazonNav {
         this.onMessage(message, sender, sendResponse);
       }.bind(this), false);
     this.attachToDocument();
+    this.addDefaultKeySupport();
     this.select(1);
   }
 
@@ -23,6 +24,26 @@ class AmazonNav {
 
     navigatables.each(function() {
       $this.attachToNavigatable($(this));
+    });
+  }
+
+  addDefaultKeySupport() {
+    let $this = this;
+    $(window).on('keydown', function(e) {
+      console.debug(`AmazonNav: key "${e.key}" pressed.`);
+
+      switch (e.key) {
+        case "Backspace":
+          window.history.back();
+          e.preventDefault();
+          break;
+        case "ArrowDown":
+        case "ArrowUp":
+          // Ensure we have some focus if possible
+          if($this.select($this.currentIndex))
+            e.preventDefault();
+          break;
+      }
     });
   }
 
@@ -75,10 +96,13 @@ class AmazonNav {
   }
 
   select(index) {
-    var nextItem = $(`[amazon-nav-index*='${index}']`);
+    let nextItem = $(`[amazon-nav-index*='${index}']`);
     if (nextItem.length > 0 && index > 0) {
+      this.currentIndex = index;
       this.findNavigatableForElement(nextItem).selectItem(nextItem);
+      return true;
     }
+    return false;
   }
 
   getIndex(e) {

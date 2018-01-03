@@ -1,4 +1,4 @@
-div.dv-episode-container:focus, li.dv-shelf-item:focus, a.dv-play-btn-content {
+div.dv-episode-container:focus, li.dv-shelf-item:focus, a.dv-play-btn-content:focus {
     outline: none;
     border-color: yellow;
     border-style: solid;
