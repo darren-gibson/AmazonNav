@@ -4,11 +4,18 @@
   "short_name": "AmazonNav",
   "description": "Navigate Amazon Prime Videos using keyboard",
   "version": "0.0.1",
+  "background": {
+    "scripts": ["webrequesthook.js"],
+    "persistent": true
+  },
   "content_scripts": [{
     "matches": ["*://www.amazon.co.uk/*"],
     "css": ["mystyles.css"],
-    "js": ["jquery-3.2.1.min.js", "jquery.scrollTo.js", "driver.js"]
+    "js": ["jquery-3.2.1.min.js", "jquery.scrollTo.js", "navigatable.js",
+      "ShelfNavigatable.js", "PlayerNavigatable.js", "EpisodeNavigatable.js", "AmazonNav.js"
+    ]
   }],
+  "permissions": ["webRequest", "webRequestBlocking", "tabs", "*://www.amazon.co.uk/*"],
   "icons": {
     "48": "assets/48.png"
   }
