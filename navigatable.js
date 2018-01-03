@@ -28,13 +28,10 @@ class Navigatable {
 
   setFocus(e) {
     console.debug('AmazonNav: focus changed to: ', e.get()[0]);
-    // $('.azn-active').removeClass('azn-active');
-    e.addClass('azn-active');
   }
 
   removeFocus(e) {
     console.debug('AmazonNav: focus removed from: ', e.get()[0]);
-    e.removeClass('azn-active');
   }
 
   simulateClick(elem) {

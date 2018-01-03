@@ -1,10 +1,5 @@
-.azn-active{
-    border-color: yellow;
-    border-style: solid;
-    border-width: 5px;
-}
-
-div.dv-episode-container.azn-active {
+div.dv-episode-container:focus, li.dv-shelf-item:focus, a.dv-play-btn-content {
+    outline: none;
     border-color: yellow;
     border-style: solid;
     border-width: 5px;
